@@ -21,12 +21,10 @@ class App extends Component<{}, IState> {
         super(props);
 
         this.state = {
-            // data saves the server responds.
-            // We use this state to parse data down to the child element (Graph) as element property
             data: [],
             showGraph: false
         };
-    }
+     }
 
     /**
      * Render Graph react component with state.data parse as property data
@@ -50,12 +48,11 @@ class App extends Component<{}, IState> {
                 });
             });
             x++;
-            if (x > 1000) {
+            if(x > 1000) {
                 clearInterval(interval);
             }
         }, 100);
     }
-
     /**
      * Render the App react component
      */
@@ -67,13 +64,8 @@ class App extends Component<{}, IState> {
                 </header>
                 <div className="App-content">
                     <button className="btn btn-primary Stream-button"
-                        // when button is click, our react app tries to request
-                        // new data from the server.
-                        // As part of your task, update the getDataFromServer() function
-                        // to keep requesting the data every 100ms until the app is closed
-                        // or the server does not return anymore data.
-                            onClick={() => {
-                                this.getDataFromServer()
+                        onClick={() => (
+                            this.getDataFromServer()
                             }}>
                         Start Streaming Data
                     </button>
